@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "NINERS Cyber Academy",
+    "slug": "ninerscyberacademy",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "de.ninersacademy.cyberacademy",
+      "buildNumber": "1.0.3"
+    },
+    "android": {
+      "package": "de.ninersacademy.cyberacademy",
+      "versionCode": 1
+    },
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "description": "",
+    "web": {
+      "build": {
+        "report": {
+          "statsFilename": "stats.json",
+          "reportFilename": "report.html",
+          "analyzerMode": "static",
+          "analyzerHost": "127.0.0.1",
+          "analyzerPort": 8888,
+          "defaultSizes": "gzip",
+          "openAnalyzer": false,
+          "generateStatsFile": true,
+          "statsOptions": null,
+          "excludeAssets": null,
+          "verbose": false,
+          "path": "web-report"
+        }
+      }
+    }
+  }
+}
