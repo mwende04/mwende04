@@ -5,7 +5,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "predeploy": "expo build:web",
+    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
@@ -21,9 +23,11 @@
     "expo-optimize": "^0.1.8",
     "firebase": "^7.12.0",
     "firebase-cli": "^1.2.0",
+    "firebase-tools": "^7.16.1",
     "firestore-parser": "^0.9.0",
     "netlify": "^4.0.0",
     "netlify-cli": "^2.40.0",
+    "now": "^17.1.1",
     "react": "~16.9.0",
     "react-dom": "^16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",

@@ -105,4 +105,9 @@ export const styles = StyleSheet.create(
             paddingLeft: 10,
             // paddingTop: (Platform.OS === 'ios') ? 20 : 0
         },
+
+        logo: {
+            width: 50,
+            height: 33,
+        },
     });

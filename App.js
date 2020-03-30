@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Asset } from 'expo-asset';
 import { AppLoading } from 'expo';
 import { WeeksData, warmups, cooldowns } from './config/data';
+import { styles } from './config/styles';
 
 import Weeks from './screens/Weeks'
 import WorkoutList from './screens/WorkoutList';
@@ -28,8 +29,9 @@ function NavStack() {
       screenOptions={{
         headerTitleAlign: 'center',
         headerRight: () => (
-          <Image source={require('./assets/images/Logo_NINERS_Academy_Chemnitz_2016_RGB2.png')} />
+          <Image style={styles.logo} source={require('./assets/images/Logo_NINERS_Academy_Chemnitz_2016_RGB2.png')} />
         ),
+        headerRightStyle: styles.logo,
         headerStyle: {
           // backgroundColor: '#e35a00',
           backgroundColor: '#000',
