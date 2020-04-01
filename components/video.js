@@ -12,6 +12,7 @@ export default class WorkoutVideo extends Component {
     render() {
         const { width } = Dimensions.get('window');
         const videoUrl = this.props.url;
+        console.log("video url: " + JSON.stringify(videoUrl));
         return (
             <Video
                 source={videoUrl}
@@ -20,6 +21,7 @@ export default class WorkoutVideo extends Component {
                 resizeMode="cover"
                 useNativeControls
                 style={{ width: 100, height: 100 }}
+                type='video/mp4'
             />
         );
     }

@@ -6,8 +6,9 @@ import { warmups, cooldowns } from '../config/data';
 import { styles } from '../config/styles';
 import { Entypo } from '@expo/vector-icons';
 import firebaseStorage from '../components/Firebase';
+//import { unregister } from './registerServiceWorker';
 
-
+//unregister();
 
 class Exercise extends Component {
     constructor(props) {
@@ -16,14 +17,19 @@ class Exercise extends Component {
     }
 
     async  componentDidMount() {
-        if (this.props.item["videoUrl"] != undefined) {
-            const url = await firebaseStorage.ref(this.props.item.videoUrl).getDownloadURL()
-            /*.then(function (url) {
-                  console.log("VideoUrl:" + url);
-                  this.setState({ videoUrl: url });
-              }).catch(err => console.error(err));*/
-
-            this.setState({ videoUrl: url });
+        try {
+            if (this.props.item["videoUrl"] != undefined) {
+                let url = await firebaseStorage.ref(this.props.item.videoUrl).getDownloadURL()
+                /*.then(function (url) {
+                      console.log("VideoUrl:" + url);
+                      this.setState({ videoUrl: url });
+                  }).catch(err => console.error(err));*/
+                url = url + "?alt=media"
+                console.log("getDownloadURL: " + url);
+                this.setState({ videoUrl: url });
+            }
+        } catch (error) {
+            console.log("Error getting Video URL: " + error);
         }
     }
 
