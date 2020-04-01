@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Dimensions } from "react-native";
 import { Video } from 'expo-av';
-import { MaterialIcons, Octicons } from '@expo/vector-icons';
 
 export default class WorkoutVideo extends Component {
 

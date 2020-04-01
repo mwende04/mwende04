@@ -6,6 +6,7 @@ import { Asset } from 'expo-asset';
 import { AppLoading } from 'expo';
 import { WeeksData, warmups, cooldowns } from './config/data';
 import { styles } from './config/styles';
+import { SplashScreen } from 'expo';
 
 import Weeks from './screens/Weeks'
 import WorkoutList from './screens/WorkoutList';
@@ -82,31 +83,29 @@ function getValues(obj, key) {
 
 function cacheImages(images) {
   return images.map(image => {
-    if (typeof image === 'string') {
-      return Image.prefetch(image);
-    } else {
-      return Asset.fromModule(image).downloadAsync();
-    }
+    return Asset.fromModule(image).downloadAsync();
   });
 }
 
 export default class App extends Component {
   state = {
     isReady: false,
+    isSplashReady: false,
   };
 
+
   async _loadAssetsAsync() {
-    /* const imageAssets = cacheImages([
-       'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
-       require('./assets/images/circle.jpg'),
-     ]);*/
     const data = { weeks: WeeksData, warmups: warmups, cooldowns: cooldowns }
     const imageAssets = cacheImages(getValues(data, 'imageUrl'));
-    //const videoAssets = cacheImages(getValues(data, "videoUrl"));
 
-    //await Promise.all([...imageAssets, ...videoAssets]);
-    await Promise.all([...imageAssets]);
+    await Promise.all(imageAssets);
   }
+
+  /* async _cacheSplashResourcesAsync() {
+     const gif = require('./assets/splash.png');
+     return Asset.fromModule(gif).downloadAsync();
+   };*/
+
   render() {
     if (!this.state.isReady) {
       return (
@@ -117,6 +116,17 @@ export default class App extends Component {
         />
       );
     }
+    /*  if (!this.state.isAppReady) {
+        return (
+          <View style={{ flex: 1 }}>
+            <Image
+              source={require('./assets/splash.png')}
+              onLoad={this._loadAssetsAsync}
+              onFinish={() => this.setState({ isAppReady: true })}
+            />
+          </View>
+        );
+      }*/
     return (
       <NavigationContainer>
         <NavStack />

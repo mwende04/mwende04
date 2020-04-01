@@ -5,18 +5,34 @@ import WorkoutVideo from '../components/video';
 import { warmups, cooldowns } from '../config/data';
 import { styles } from '../config/styles';
 import { Entypo } from '@expo/vector-icons';
+import firebaseStorage from '../components/Firebase';
 
 
 
 class Exercise extends Component {
     constructor(props) {
         super(props);
+        this.state = { videoUrl: "" };
     }
+
+    async  componentDidMount() {
+        if (this.props.item["videoUrl"] != undefined) {
+            const url = await firebaseStorage.ref(this.props.item.videoUrl).getDownloadURL()
+            /*.then(function (url) {
+                  console.log("VideoUrl:" + url);
+                  this.setState({ videoUrl: url });
+              }).catch(err => console.error(err));*/
+
+            this.setState({ videoUrl: url });
+        }
+    }
+
     onPressImage = (image) => {
         this.props.nav.navigate('ImageModal', { image: image, nav: this.props.nav });
     }
 
     showExerciseVideo = () => {
+        var storageRef = firebaseStorage.ref();
         if (this.props.item["videoUrl"] === undefined) {
             if (this.props.item["imageUrl"] === undefined) {
                 return <Image source={require("../assets/images/week1/week1_logo.jpg")}
@@ -30,7 +46,7 @@ class Exercise extends Component {
                     style={{ width: 100, height: 100 }} /></TouchableHighlight>
             }
         } else {
-            return <WorkoutVideo url={this.props.item.videoUrl}></WorkoutVideo>
+            return <WorkoutVideo url={{ uri: this.state.videoUrl }}></WorkoutVideo>
         }
     }
 

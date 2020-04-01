@@ -1,19 +1,19 @@
 import * as firebase from 'firebase';
-import firestore from 'firebase/firestore'
+import storage from 'firebase/storage'
 
 
-const config = {
-    apiKey: "AIzaSyBm1_SaOxi7_Zi2nViXQudPscLqb1mNLUw",
-    authDomain: "niners-workout.firebaseapp.com",
-    databaseURL: "https://niners-workout.firebaseio.com",
-    projectId: "niners-workout",
-    storageBucket: "niners-workout.appspot.com",
-    messagingSenderId: "634415453674",
-    appId: "1:634415453674:web:01fb8c8c7157a9cf6fce93"
+const firebaseConfig = {
+    apiKey: "AIzaSyBxTVkEN8bLjiaaLO2rgBdSzwtZsb4cOT4",
+    authDomain: "niners-cyber-academy.firebaseapp.com",
+    databaseURL: "https://niners-cyber-academy.firebaseio.com",
+    projectId: "niners-cyber-academy",
+    storageBucket: "niners-cyber-academy.appspot.com",
+    messagingSenderId: "844100209960",
+    appId: "1:844100209960:web:ead3f13ae248720d82d41d"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore();
+const firebaseStorage = firebase.storage();
 
 
-export default db;
+export default firebaseStorage;

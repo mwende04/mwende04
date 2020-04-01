@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "predeploy": "expo build:web",
-    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
+    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting && yarn netlify deploy --dir web-build --prod"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
@@ -15,6 +15,7 @@
     "@react-native-community/async-storage": "^1.8.1",
     "@react-native-community/masked-view": "0.1.5",
     "@react-native-firebase/app": "^6.3.4",
+    "@react-native-firebase/storage": "^6.3.4",
     "@react-navigation/native": "^5.1.3",
     "@react-navigation/stack": "^5.2.6",
     "base-64": "^0.1.0",
